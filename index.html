@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827"><title>VantaBet | Match Centre</title>
+<style>
+:root{--bg:#0b1220;--panel:#121d2e;--panel2:#19283b;--line:#2a3a50;--text:#f4f7fb;--muted:#a9b6c8;--lime:#c9f36b;--gold:#ffd46b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,select{font:inherit}button{cursor:pointer}.top{border-bottom:1px solid var(--line);background:#0b1220ee;position:sticky;top:0}.nav,main,.foot{max-width:1120px;margin:auto;padding:15px 20px}.nav{display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:10px;font-size:1.3rem;font-weight:900;letter-spacing:-.04em}.logo{width:39px;height:39px;border-radius:12px;background:var(--lime);color:#182516;display:grid;place-items:center}.brand em{font-style:normal;color:var(--lime)}.tag{border:1px solid #44532e;color:var(--lime);padding:6px 10px;border-radius:99px;font-size:.78rem;font-weight:800}.hero{margin:23px 0;padding:clamp(22px,4vw,38px);border:1px solid var(--line);border-radius:22px;background:radial-gradient(circle at 90% 15%,#30412a,transparent 34%),linear-gradient(120deg,#192a3d,#111a29)}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;font-weight:900;color:var(--lime)}h1{font-size:clamp(2.2rem,6vw,3.8rem);letter-spacing:-.06em;line-height:1.03;margin:10px 0}p{color:var(--muted)}.hero p{max-width:650px}.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:24px 0 12px}.bar h2{margin:0;font-size:1.45rem;letter-spacing:-.03em}.sports{display:flex;gap:8px;flex-wrap:wrap}.sport{border:1px solid var(--line);background:var(--panel);color:var(--muted);padding:9px 14px;border-radius:999px;font-weight:800}.sport.active{background:var(--lime);border-color:var(--lime);color:#172016}.controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.controls select,.refresh{background:var(--panel);border:1px solid var(--line);color:var(--text);padding:9px 12px;border-radius:10px}.refresh{font-weight:800}.status{padding:12px 14px;background:#182438;border:1px solid var(--line);border-radius:12px;color:var(--muted);margin:12px 0}.status strong{color:var(--text)}.matches{display:grid;gap:12px}.match{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}.matchhead{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:.82rem;margin-bottom:13px}.teams{display:grid;gap:9px;font-weight:800}.team{display:flex;gap:10px;align-items:center}.crest{width:28px;height:28px;border:1px solid #34455c;background:var(--panel2);border-radius:9px;display:grid;place-items:center;color:var(--lime);font-size:.7rem}.matchbody{display:grid;grid-template-columns:1fr minmax(210px,.8fr);gap:14px;align-items:center}.odds{display:flex;gap:7px;flex-wrap:wrap;justify-content:end}.odd{min-width:66px;flex:1;background:#1c2b40;border:1px solid #30435a;color:var(--text);padding:8px;border-radius:9px;text-align:center}.odd small{display:block;color:var(--muted);font-size:.68rem}.odd b{font-size:.95rem}.empty{border:1px dashed #394b61;border-radius:15px;padding:30px 18px;text-align:center;color:var(--muted)}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:26px 0}.feature{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px}.feature b{display:block;margin-bottom:5px}.feature span{color:var(--muted);font-size:.88rem}.foot{border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}.footinner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}@media(max-width:650px){.nav,main,.foot{padding-left:13px;padding-right:13px}.matchbody{grid-template-columns:1fr}.odds{justify-content:stretch}.odd{min-width:0}.features{grid-template-columns:1fr}.matchhead{font-size:.75rem}}
+</style></head>
+<body>
+<header class="top"><nav class="nav"><a class="brand" href="#"><span class="logo">V</span><span>Vanta<em>Bet</em></span></a><span class="tag">MATCH CENTRE</span></nav></header>
+<main>
+<section class="hero"><div class="eyebrow">Global sports · One match centre</div><h1>Follow the action.<br><span style="color:var(--lime)">Stay in the game.</span></h1><p>A professional sports match centre for football, rugby, basketball and tennis. Fixtures and odds appear here only when a verified sports-data API has been connected.</p></section>
+<div class="bar"><div><h2>Fixtures & odds</h2><p style="margin:4px 0 0">Data is retrieved from your configured provider, not invented sample matches.</p></div><div class="controls"><select id="date"><option value="today">Today</option><option value="tomorrow">Tomorrow</option><option value="week">Next 7 days</option></select><button class="refresh" id="refresh">↻ Refresh</button></div></div>
+<div class="sports" role="group" aria-label="Choose sport"><button class="sport active" data-sport="football">⚽ Football</button><button class="sport" data-sport="rugby">🏉 Rugby</button><button class="sport" data-sport="basketball">🏀 Basketball</button><button class="sport" data-sport="tennis">🎾 Tennis</button></div>
+<div class="status" id="status" role="status"><strong>Connecting…</strong> Checking the configured sports-data service.</div>
+<div class="matches" id="matches"></div>
+<section class="features"><div class="feature"><b>Genuine fixtures</b><span>Match cards are populated only by the API response.</span></div><div class="feature"><b>Automatic refresh</b><span>Refresh the feed manually or configure a safe server-side refresh schedule.</span></div><div class="feature"><b>Protected API key</b><span>Keep provider credentials on the server, never in public browser code.</span></div></section>
+</main><footer class="foot"><div class="footinner"><span>© <span id="year"></span> VantaBet</span><span>Sports information only until the operator is properly licensed and authorized.</span></div></footer>
+<script>
+let activeSport='football';const matches=document.querySelector('#matches'),statusBox=document.querySelector('#status');
+document.querySelector('#year').textContent=new Date().getFullYear();
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function initials(s){return String(s||'?').trim().split(/\s+/).slice(0,2).map(x=>x[0]||'').join('').toUpperCase()}
+function showEmpty(title,detail){matches.innerHTML=`<div class="empty"><div style="font-size:1.5rem;margin-bottom:7px">◷</div><strong>${esc(title)}</strong><p>${esc(detail)}</p></div>`}
+function render(items){
+ if(!Array.isArray(items)||!items.length){showEmpty('No fixtures returned','The provider returned no matches for this sport and date range. Try another date or refresh later.');return}
+ matches.innerHTML=items.map(m=>{
+  const home=m.home||m.homeTeam||m.player1||m.competitors?.[0]?.name||'Home';
+  const away=m.away||m.awayTeam||m.player2||m.competitors?.[1]?.name||'Away';
+  const league=m.league||m.competition||m.tournament||'Competition not supplied';
+  const time=m.startTime||m.kickoff||m.date||m.start_time||'Time not supplied';
+  const odds=Array.isArray(m.odds)?m.odds:[];
+  const oddsHtml=odds.length?odds.map(o=>`<div class="odd"><small>${esc(o.label||o.name||'Market')}</small><b>${esc(o.price??o.odds??'—')}</b></div>`).join(''):'<span style="color:var(--muted);font-size:.8rem">Odds not included by provider</span>';
+  return `<article class="match"><div class="matchhead"><span>${esc(league)}</span><span>${esc(time)}</span></div><div class="matchbody"><div class="teams"><div class="team"><span class="crest">${esc(initials(home))}</span>${esc(home)}</div><div class="team"><span class="crest">${esc(initials(away))}</span>${esc(away)}</div></div><div class="odds">${oddsHtml}</div></div></article>`
+ }).join('')
+}
+async function load(){
+ statusBox.innerHTML='<strong>Updating…</strong> Requesting current fixtures from the configured provider.';
+ matches.innerHTML='';
+ const range=document.querySelector('#date').value;
+ try{
+  const res=await fetch(`/.netlify/functions/fixtures?sport=${encodeURIComponent(activeSport)}&range=${encodeURIComponent(range)}`,{headers:{Accept:'application/json'}});
+  if(res.status===404){statusBox.innerHTML='<strong>Sports data not connected yet.</strong> The website needs a server endpoint at <code>/api/fixtures</code> linked to a sports-data provider. No made-up fixtures are shown.';showEmpty('Ready for live data','Add your API provider and key on the server, then map its response to the fixture format in README.txt.');return}
+  if(!res.ok)throw new Error(`Service returned HTTP ${res.status}`);
+  const data=await res.json();const items=Array.isArray(data)?data:(data.fixtures||data.events||data.matches||[]);
+  statusBox.innerHTML=`<strong>Data received.</strong> Provider: ${esc(data.provider||'configured sports API')}. Last checked: ${new Date().toLocaleString()}.`;
+  render(items)
+ }catch(err){statusBox.innerHTML='<strong>Feed unavailable.</strong> Could not retrieve current fixtures. Check the server endpoint and API configuration.';showEmpty('Fixtures could not load',err.message+' — no sample matches are substituted.')}
+}
+document.querySelectorAll('.sport').forEach(b=>b.addEventListener('click',()=>{activeSport=b.dataset.sport;document.querySelectorAll('.sport').forEach(x=>x.classList.toggle('active',x===b));load()}));
+document.querySelector('#refresh').addEventListener('click',load);document.querySelector('#date').addEventListener('change',load);load();
+</script></body></html>
